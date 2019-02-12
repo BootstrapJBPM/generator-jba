@@ -45,7 +45,8 @@
     "yeoman-generator": "^2.0.1",
     "chalk": "^2.1.0",
     "yosay": "^2.0.1",
-    "adm-zip": "^0.4.13"
+    "adm-zip": "^0.4.13",
+    "request": "^2.88.0"
   },
   "jest": {
     "testEnvironment": "node"
