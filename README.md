@@ -1,42 +1,55 @@
-# jBPM Business Applications Yeoman generator
+# generator-jba
 
-This yeoman generator can help you build a jBPM Business Application.
+## Introduction
+
+This is a [JHipster](http://www.jhipster.tech/) module, that is meant to be used in a JHipster application. This module is used to generate a jBPM Business Appliation.
+
+## Prerequisites
+
+As this is a [JHipster](http://www.jhipster.tech/) module, we expect you have JHipster and its related tools already installed:
+
+- [Installing JHipster](http://www.jhipster.tech/installation/)
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and generator-jba using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+### With Yarn
+
+To install this module:
 
 ```bash
-npm install -g yo
+yarn global add generator-jba
+```
+
+To update this module:
+
+```bash
+yarn global upgrade generator-jba
+```
+
+### With NPM
+
+To install this module:
+
+```bash
 npm install -g generator-jba
 ```
 
-Then generate your new project:
+To update this module:
+
+```bash
+npm update -g generator-jba
+```
+
+## Usage
+
+To run the module on a JHipster generated application:
 
 ```bash
 yo jba
 ```
 
-To see possible options run
+and follow the installation steps. If you want to generate the app with default settings run:
 
 ```bash
-yo jba --help
+yo jba --quick=true
 ```
-
-## Getting To Know Yeoman
-
-- Yeoman has a heart of gold.
-- Yeoman is a person with feelings and opinions, but is very easy to work with.
-- Yeoman can be too opinionated at times but is easily convinced not to be.
-- Feel free to [learn more about Yeoman](http://yeoman.io/).
-
-## License
-
-Apache-2.0 © [Tihomir Surdilovic]()
-
-[npm-image]: https://badge.fury.io/js/generator-jba.svg
-[npm-url]: https://npmjs.org/package/generator-jba
-[travis-image]: https://travis-ci.org//generator-jba.svg?branch=master
-[travis-url]: https://travis-ci.org//generator-jba
-[daviddm-image]: https://david-dm.org//generator-jba.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org//generator-jba
