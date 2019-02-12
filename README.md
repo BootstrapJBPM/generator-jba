@@ -1,4 +1,4 @@
-# jBPM Business Applications yeoman generator
+# jBPM Business Applications Yeoman generator
 
 This yeoman generator can help you build a jBPM Business Application.
 
@@ -15,6 +15,12 @@ Then generate your new project:
 
 ```bash
 yo jba
+```
+
+To see possible options run
+
+```bash
+yo jba --help
 ```
 
 ## Getting To Know Yeoman
