@@ -1,9 +1,10 @@
 {
-  "generator-node": {
+  "generator-jhipster": {
     "promptValues": {
       "authorName": "Tihomir Surdilovic",
       "authorEmail": "tsurdilovic@gmail.com",
       "authorUrl": ""
-    }
+    },
+    "jhipsterVersion": "4.1.0"
   }
 }

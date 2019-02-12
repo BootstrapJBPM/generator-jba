@@ -1,11 +1,12 @@
-const Generator = require("yeoman-generator");
+const packagejs = require("../../package.json");
+const BaseGenerator = require("generator-jhipster/generators/generator-base");
 const chalk = require("chalk");
-const yosay = require("yosay");
 const config = require("./config");
 const appinstall = require("./appinstall");
-const systempath = require('path');
+const systempath = require("path");
+const figlet = require("figlet")
 
-module.exports = class extends Generator {
+module.exports = class extends BaseGenerator {
   constructor(args, opts) {
     super(args, opts);
     for (let optionName in config.options) {
@@ -17,15 +18,24 @@ module.exports = class extends Generator {
     this.path = process.cwd() + systempath.sep;
   }
 
-  prompting() {
-    this.log(
-      yosay(
-        `Yo! I\'m here to help build your  ${chalk.red(
-          "jBPM Business Application"
-        )}!`
-      )
-    );
+  get initializing() {
+    return {
+      displayLogo() {
+        this.log(chalk.yellow(
+          figlet.textSync("jBPM  Business  Apps", {
+            horizontalLayout: "full"
+          })
+        ));
+        this.log(
+          `\nWelcome to the ${chalk.bold.yellow(
+            "JHipster jBPM Business Apps"
+          )} generator! ${chalk.yellow(`v${packagejs.version}\n`)}`
+        );
+      }
+    };
+  }
 
+  prompting() {
     const defaultAppDetails = {
       capabilities: "bpm",
       packagename: "com.company",
@@ -62,13 +72,16 @@ module.exports = class extends Generator {
         }
 
         this.appDetails.options = this.answers.options;
-
       });
     }
   }
 
   writing() {
-    appinstall.getAndGenerate(this.site, this.dounzip, this.appDetails, this.path);
+    appinstall.getAndGenerate(
+      this.site,
+      this.dounzip,
+      this.appDetails,
+      this.path
+    );
   }
-
 };

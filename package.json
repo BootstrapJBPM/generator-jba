@@ -44,9 +44,10 @@
   "dependencies": {
     "yeoman-generator": "^2.0.1",
     "chalk": "^2.1.0",
-    "yosay": "^2.0.1",
     "adm-zip": "^0.4.13",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "generator-jhipster": ">=4.1.0",
+    "figlet": "^1.2.1"
   },
   "jest": {
     "testEnvironment": "node"
