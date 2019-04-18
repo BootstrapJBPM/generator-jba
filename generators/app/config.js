@@ -104,6 +104,28 @@ module.exports = {
           return 'Please enter application components.';
         }
       }
+    },
+    {
+      name: 'addsampleprocess',
+      type: 'list',
+      message: 'Add sample business process?',
+      default: 'no',
+      choices: [{
+          name: 'Yes',
+          value: 'yes'
+        },
+        {
+          name: 'No',
+          value: 'no'
+        }
+      ],
+      validate: function (value) {
+        if (value.length) {
+          return true;
+        } else {
+          return 'Please enter valid sample business process option..';
+        }
+      }
     }
   ]
 };

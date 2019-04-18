@@ -4,7 +4,7 @@ const chalk = require("chalk");
 const config = require("./config");
 const appinstall = require("./appinstall");
 const systempath = require("path");
-const figlet = require("figlet")
+const figlet = require("figlet");
 
 module.exports = class extends BaseGenerator {
   constructor(args, opts) {
@@ -21,11 +21,13 @@ module.exports = class extends BaseGenerator {
   get initializing() {
     return {
       displayLogo() {
-        this.log(chalk.yellow(
-          figlet.textSync("jBPM  Business  Apps", {
-            horizontalLayout: "full"
-          })
-        ));
+        this.log(
+          chalk.yellow(
+            figlet.textSync("jBPM  Business  Apps", {
+              horizontalLayout: "full"
+            })
+          )
+        );
         this.log(
           `\nWelcome to the ${chalk.bold.yellow(
             "JHipster jBPM Business Apps"
@@ -41,7 +43,8 @@ module.exports = class extends BaseGenerator {
       packagename: "com.company",
       name: "business-application",
       version: "",
-      options: ["kjar", "model", "service"]
+      options: ["kjar", "model", "service"],
+      addsampleprocess: "no"
     };
 
     this.site = this.options.site;
@@ -72,8 +75,37 @@ module.exports = class extends BaseGenerator {
         }
 
         this.appDetails.options = this.answers.options;
+
+        this.appDetails.addsampleprocess = this.answers.addsampleprocess;
       });
     }
+  }
+
+  _writingsampleprocess() {
+    this.template(
+      `HelloWorldWithTask.bpmn2`,
+      `${this.appDetails.name}-kjar/src/main/resources/HelloWorldWithTask.bpmn2`
+    );
+
+    this.template(
+      `SimpleHelloProcess.bpmn2`,
+      `${this.appDetails.name}-kjar/src/main/resources/SimpleHelloProcess.bpmn2`
+    );
+
+    this.template(
+      `WorkDefinitions.wid`,
+      `${this.appDetails.name}-kjar/src/main/resources/WorkDefinitions.wid`
+    );
+
+    this.template(
+      `src.main.resources.HelloWorldWithTask-svg.svg`,
+      `${this.appDetails.name}-kjar/src/main/resources/src.main.resources.HelloWorldWithTask-svg.svg`
+    );
+
+    this.template(
+      `src.main.resources.SimpleHelloProcess-svg.svg`,
+      `${this.appDetails.name}-kjar/src/main/resources/src.main.resources.SimpleHelloProcess-svg.svg`
+    );
   }
 
   writing() {
@@ -83,5 +115,14 @@ module.exports = class extends BaseGenerator {
       this.appDetails,
       this.path
     );
+
+    if (this.appDetails.addsampleprocess === 'yes') {
+      this._writingsampleprocess();
+    }
+
+  }
+
+  end() {
+    this.log('End of jba generator');
   }
 };
