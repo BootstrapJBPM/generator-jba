@@ -47,7 +47,10 @@
     "adm-zip": "^0.4.13",
     "request": "^2.88.0",
     "generator-jhipster": ">=4.1.0",
-    "figlet": "^1.2.1"
+    "figlet": "^1.2.1",
+    "handlebars": ">=4.0.14",
+    "js-yaml": ">=3.13.1",
+    "axios": ">=0.18.1"
   },
   "jest": {
     "testEnvironment": "node"
